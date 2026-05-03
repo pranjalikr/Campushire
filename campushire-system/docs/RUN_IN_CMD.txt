@@ -1,0 +1,122 @@
+========================================
+HOW TO RUN IN COMMAND PROMPT
+========================================
+
+IMPORTANT: You need 2 SEPARATE Command Prompt windows
+- One for Backend (port 8000)
+- One for Frontend (port 5173 or 3002)
+
+========================================
+STEP 1: START BACKEND
+========================================
+
+Open Command Prompt (Press Windows Key + R, type "cmd", press Enter)
+
+Type these commands ONE BY ONE (press Enter after each):
+
+cd "C:\Users\tejuu\OneDrive\Desktop\ai project\backend"
+
+venv\Scripts\activate
+
+python -m uvicorn main:app --reload --host 127.0.0.1 --port 8000
+
+Wait until you see:
+"INFO:     Uvicorn running on http://127.0.0.1:8000"
+
+KEEP THIS WINDOW OPEN!
+
+
+========================================
+STEP 2: START FRONTEND (NEW WINDOW)
+========================================
+
+Open a NEW Command Prompt window
+(Press Windows Key + R, type "cmd", press Enter)
+
+Type these commands ONE BY ONE (press Enter after each):
+
+cd "C:\Users\tejuu\OneDrive\Desktop\ai project\frontend"
+
+npm run dev
+
+Wait until you see:
+"Local:   http://localhost:5173/"
+
+KEEP THIS WINDOW OPEN!
+
+
+========================================
+STEP 3: OPEN IN BROWSER
+========================================
+
+Open your web browser and go to:
+http://localhost:5173
+
+OR
+
+http://localhost:3002
+(if frontend is running on port 3002)
+
+
+========================================
+VERIFY BACKEND IS WORKING
+========================================
+
+Open a browser and go to:
+http://localhost:8000/health
+
+You should see:
+{"status":"healthy"}
+
+
+========================================
+TO STOP THE SERVERS
+========================================
+
+In each Command Prompt window, press:
+Ctrl + C
+
+Then close the windows.
+
+
+========================================
+TROUBLESHOOTING
+========================================
+
+Problem: "python: command not found"
+Solution: Make sure you activated the virtual environment:
+  venv\Scripts\activate
+
+Problem: "npm: command not found"
+Solution: Install Node.js from https://nodejs.org/
+
+Problem: "Cannot connect to server" in browser
+Solution:
+  1. Make sure backend is running (check Window 1)
+  2. Hard refresh browser: Ctrl + Shift + R
+  3. Check http://localhost:8000/health in browser
+
+Problem: "Port 8000 already in use"
+Solution: The backend is already running! Just start the frontend.
+
+Problem: "Port 5173 already in use"
+Solution: Vite will automatically use the next available port (like 3002)
+
+
+========================================
+QUICK REFERENCE
+========================================
+
+Backend Commands:
+  cd "C:\Users\tejuu\OneDrive\Desktop\ai project\backend"
+  venv\Scripts\activate
+  python -m uvicorn main:app --reload --host 127.0.0.1 --port 8000
+
+Frontend Commands:
+  cd "C:\Users\tejuu\OneDrive\Desktop\ai project\frontend"
+  npm run dev
+
+URLs:
+  Backend API: http://localhost:8000
+  Backend Docs: http://localhost:8000/docs
+  Frontend: http://localhost:5173 (or 3002)
